@@ -146,6 +146,16 @@ def error_params(platform, command_output):
         else:
             return False
 
+    if 'extreme_exos' in platform:
+        if "Slot 1 does not support sflow" in command_output:
+            return True
+        if "Slot 2 does not support sflow" in command_output:
+            return True
+        elif "%% Invalid input detected." in command_output:
+            return True
+        else:
+            return False
+
 
 def main():
 
@@ -174,7 +184,7 @@ def main():
     for param in no_log:
         if provider.get(param):
             module.no_log_values.update(return_values(provider[param]))
-    
+
     # allow local params to override provider
     for param, pvalue in provider.items():
         if module.params.get(param) != False:
