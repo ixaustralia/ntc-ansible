@@ -341,7 +341,7 @@ def main():
             host=dict(required=False),
             provider=dict(required=False, type='dict'),
             port=dict(required=False),
-            delay=dict(default=1, required=False),
+            delay=dict(default=1, required=False, type='float'),
             global_delay_factor=dict(default=1, required=False, type='float'),
             fast_cli=dict(required=False, default=False, type='bool'),
             username=dict(required=False, type='str'),
