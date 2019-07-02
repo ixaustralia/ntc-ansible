@@ -118,6 +118,12 @@ options:
         default: 1
         choices: []
         aliases: []
+    fast_cli:
+        description:
+            - Provide a way to optimize for performance when using netmiko. Converts select_delay_factor
+              to select smallest of global and specific. Sets default global_delay_factor to .1
+        required: false
+        default: false
     username:
         description:
             - Username used to login to the target device
@@ -447,7 +453,8 @@ def main():
             secret=secret,
             use_keys=use_keys,
             key_file=key_file,
-            global_delay_factor=global_delay_factor
+            global_delay_factor=global_delay_factor,
+            fast_cli=fast_cli
         )
         if connection_args:
             device_args.update(connection_args)

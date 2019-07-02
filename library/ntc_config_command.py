@@ -88,6 +88,12 @@ options:
             - Path to private ssh key used for login
         required: false
         default: null
+    fast_cli:
+        description:
+            - Provide a way to optimize for performance when using netmiko. Converts select_delay_factor
+              to select smallest of global and specific. Sets default global_delay_factor to .1
+        required: false
+        default: false
 '''
 
 EXAMPLES = '''
@@ -234,7 +240,8 @@ def main():
                                 password=password,
                                 secret=secret,
                                 use_keys=use_keys,
-                                key_file=key_file
+                                key_file=key_file,
+                                fast_cli=fast_cli
                                 )
 
         if secret:
