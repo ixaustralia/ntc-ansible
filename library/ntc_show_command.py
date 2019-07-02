@@ -343,6 +343,7 @@ def main():
             port=dict(required=False),
             delay=dict(default=1, required=False),
             global_delay_factor=dict(default=1, required=False),
+            fast_cli=dict(required=False, default=False, type='bool'),
             username=dict(required=False, type='str'),
             password=dict(required=False, type='str', no_log=True),
             secret=dict(required=False, type='str', no_log=True),
@@ -388,6 +389,7 @@ def main():
     key_file = module.params['key_file']
     delay = int(module.params['delay'])
     global_delay_factor = int(module.params['global_delay_factor'])
+    fast_cli = module.params['fast_cli']
     trigger_device_list = module.params['trigger_device_list']
     optional_args = module.params['optional_args']
     connection_args = module.params['connection_args']

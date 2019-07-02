@@ -180,6 +180,7 @@ def main():
             secret=dict(required=False, type='str', no_log=True),
             use_keys=dict(required=False, default=False, type='bool'),
             key_file=dict(required=False, default=None, type='str'),
+            fast_cli=dict(required=False, default=False, type='bool'),
         ),
         supports_check_mode=False
     )
@@ -207,6 +208,7 @@ def main():
     secret = module.params['secret']
     use_keys = module.params['use_keys']
     key_file = module.params['key_file']
+    fast_cli = module.params['fast_cli']
 
 
     argument_check = { 'host': host, 'username': username, 'platform': platform, 'password': password }
